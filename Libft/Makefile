@@ -14,19 +14,19 @@ AR		= ar rcs
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:
-			${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o} 
-
-${NAME}:	${OBJS}
-			${AR} ${NAME} $?
+			@${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o} 
 
 all:		${NAME}
+
+${NAME}:	${OBJS}
+			@${AR} ${NAME} $?
 	
 clean:
-			${RM} ${OBJS}
+			@${RM} ${OBJS}
 
 fclean:		clean
-			${RM} ${NAME}
+			@${RM} ${NAME}
 
 re:			fclean all
 
-.PHONY:		all clean fclean re libft.a
+.PHONY:		all clean fclean re
